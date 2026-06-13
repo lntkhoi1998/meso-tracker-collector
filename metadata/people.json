@@ -1,1 +1,494 @@
-[]
+[
+  {
+    "id": "zerba_caterina",
+    "name": "Caterina Zerba",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.07752"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "mangeolle_leo",
+    "name": "Léo Mangeolle",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.07752"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "knap_michael",
+    "name": "Michael Knap",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.07752"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "soori_abhiram",
+    "name": "Abhiram Soori",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.07983"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "hu_jiawei",
+    "name": "Jiawei Hu",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "zhu_shiyu",
+    "name": "Shiyu Zhu",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "li_bohao",
+    "name": "Bohao Li",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "wang_yunhao",
+    "name": "Yunhao Wang",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "xu_shuigang",
+    "name": "Shuigang Xu",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "cheng_zhihai",
+    "name": "Zhihai Cheng",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "shen_chengmin",
+    "name": "Chengmin Shen",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "geim_andre",
+    "name": "Andre K. Geim",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "wu_fengcheng",
+    "name": "Fengcheng Wu",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "gao_hongjun",
+    "name": "Hong-Jun Gao",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.08237"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "chen_w",
+    "name": "W. C. Chen",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.09948"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "yang_h",
+    "name": "H. X. Yang",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.09948"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "zhang_x",
+    "name": "X. F. Zhang",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.09948"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "goncalves_miguel",
+    "name": "Miguel Gonçalves",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11302"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "gopalakrishnan_sarang",
+    "name": "Sarang Gopalakrishnan",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11302"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "luthi_dominik",
+    "name": "Dominik Lüthi",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "yang_lin",
+    "name": "Lin Yang",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "yu_xiuling",
+    "name": "Xiuling Yu",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "ma_ji",
+    "name": "Ji Ma",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "feng_xinliang",
+    "name": "Xinliang Feng",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "pignedoli_carlo",
+    "name": "Carlo A. Pignedoli",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "fasel_roman",
+    "name": "Roman Fasel",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "barin_gabriela",
+    "name": "Gabriela Borin Barin",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.11973"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "vasiliou_konstantinos",
+    "name": "Konstantinos Vasiliou",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.12530"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "calugaru_dumitru",
+    "name": "Dumitru Călugăru",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.12530"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "hofmann_johannes",
+    "name": "Johannes S. Hofmann",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.12530"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "parameswaran_s",
+    "name": "S. A. Parameswaran",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.12530"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "zhang_emily",
+    "name": "Emily Z. Zhang",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.12665"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "devereaux_thomas",
+    "name": "Thomas P. Devereaux",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.12665"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "qin_maosen",
+    "name": "Maosen Qin",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "wang_ziwei",
+    "name": "Ziwei Wang",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "kim_gyeongmin",
+    "name": "Gyeongmin Kim",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "watanabe_kenji",
+    "name": "Kenji Watanabe",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651",
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "taniguchi_takashi",
+    "name": "Takashi Taniguchi",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651",
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "simon_steven",
+    "name": "Steven H. Simon",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "parameswaran_siddharth",
+    "name": "Siddharth A. Parameswaran",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "polshyn_hryhoriy",
+    "name": "Hryhoriy Polshyn",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.13651"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "persky_eylon",
+    "name": "Eylon Persky",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06389"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "butler_jackson",
+    "name": "Jackson P. Butler",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "han_tonghang",
+    "name": "Tonghang Han",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "difabbio_andrew",
+    "name": "Andrew DiFabbio",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "hadjri_zach",
+    "name": "Zach Hadjri",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "aitken_emily",
+    "name": "Emily Aitken",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "ju_long",
+    "name": "Long Ju",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  },
+  {
+    "id": "ashoori_raymond",
+    "name": "Raymond C. Ashoori",
+    "institution": null,
+    "field": "2D mesoscopic physics",
+    "corpus_papers": [
+      "2606.06450"
+    ],
+    "profile_status": "stub"
+  }
+]

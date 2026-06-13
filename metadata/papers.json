@@ -305,7 +305,7 @@
         "links_live": "arXiv URL HTTP 403 — network restricted in execution environment"
       }
     },
-    "enriched": false
+    "enriched": true
   },
   {
     "arxiv_id": "2606.12665",
@@ -349,7 +349,7 @@
         "links_live": "arXiv URL HTTP 403 — network restricted in execution environment"
       }
     },
-    "enriched": false
+    "enriched": true
   },
   {
     "arxiv_id": "2606.13651",
@@ -393,7 +393,7 @@
         "links_live": "arXiv URL HTTP 403 — network restricted in execution environment"
       }
     },
-    "enriched": false
+    "enriched": true
   },
   {
     "arxiv_id": "2606.06389",
@@ -437,7 +437,7 @@
         "links_live": "arXiv URL HTTP 403 — network restricted in execution environment"
       }
     },
-    "enriched": false
+    "enriched": true
   },
   {
     "arxiv_id": "2606.06450",
@@ -455,8 +455,16 @@
     "materials": ["graphene", "hBN"],
     "corresponding_authors": [],
     "groups": ["Long Ju (Massachusetts Institute of Technology)", "Raymond C. Ashoori (Massachusetts Institute of Technology)"],
-    "summary_segments": [],
-    "significance_segments": [],
+    "summary_segments": [
+      {"type": "abstract", "text": "The fractional quantum anomalous Hall effect appears in moiré superlattices of both twisted bilayer MoTe2 and rhombohedral multilayer graphene aligned to hexagonal boron nitride, yet the 1/3 state—the most robust and fundamental state in conventional fractional quantum Hall systems—had not been observed in either platform."},
+      {"type": "abstract", "text": "Using quantum capacitance together with transport, the authors report a fractional quantum anomalous Hall state at moiré filling 1/3 in rhombohedral pentalayer graphene aligned to hexagonal boron nitride."},
+      {"type": "abstract", "text": "They find that the fractional states in this system display a surprising degree of particle-hole symmetry about half-filling, closely resembling fractional quantum Hall states in the lowest Landau level."},
+      {"type": "context", "note": "places 1/3 FQAH within the zero-field fractional program", "text": "Fractional quantum anomalous Hall states realize fractionalized topological order without an external magnetic field, and observing the canonical 1/3 state with lowest-Landau-level-like particle-hole symmetry connects these moiré systems closely to the established physics of the fractional quantum Hall effect."}
+    ],
+    "significance_segments": [
+      {"type": "abstract", "text": "Observing the missing 1/3 fractional quantum anomalous Hall state in rhombohedral pentalayer graphene, with particle-hole symmetry mirroring the lowest Landau level, fills a key gap in the zero-field fractional sequence and strengthens the correspondence between moiré flat bands and Landau-level physics."},
+      {"type": "context", "note": "relevance to topological order at zero field", "text": "Robust fractional states at zero magnetic field are sought as platforms for anyonic excitations and potential topological quantum information, so realizing the fundamental 1/3 state in a tunable graphene device broadens the experimental footing for this program."}
+    ],
     "validation": {
       "checks": {
         "arxiv_resolves": false,
@@ -473,6 +481,6 @@
         "links_live": "arXiv URL HTTP 403 — network restricted in execution environment"
       }
     },
-    "enriched": false
+    "enriched": true
   }
 ]
