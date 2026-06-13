@@ -1,0 +1,21 @@
+{
+  "gdrive_folder_id": "1Zru4o_r3wTqeEu55yK88F40b85Q5YlEy",
+  "generated": "2026-06-13T19:13:28.921245Z",
+  "files": {
+    "papers_json": {
+      "filename": "papers.json",
+      "path": "metadata/papers.json",
+      "gdrive_id": null
+    },
+    "people_json": {
+      "filename": "people.json",
+      "path": "metadata/people.json",
+      "gdrive_id": null
+    },
+    "manifest_json": {
+      "filename": "manifest.json",
+      "path": "metadata/manifest.json",
+      "gdrive_id": null
+    }
+  }
+}

@@ -1,0 +1,119 @@
+Weekly Run Log — 2026-06-13
+============================
+
+## Summary
+
+11 new papers ingested and fully enriched. All steps 1–4 completed. Push to
+remote blocked by GitHub App permissions (see Error section below).
+
+---
+
+## Step 1 — Fetch
+
+arXiv API returned HTTP 403 (network-restricted execution environment).
+Fallback: papers discovered via WebSearch and manually constructed.
+
+11 papers added to metadata/papers.json:
+
+  2606.07752  Zerba et al.     — Detecting Exciton Condensation through Charge Transport in Semiconductor Heterostructures
+  2606.07983  Soori            — Equilibrium spin currents in altermagnet junctions: Josephson-like and anomalous transport
+  2606.08237  Hu et al.        — Simultaneous nanoscale imaging of local conductivity and chemical potential in a quantum Hall isospin ferromagnet
+  2606.09948  Chen et al.      — Anatomy of fast current-induced skyrmion motion in synthetic antiferromagnets
+  2606.11302  Gonçalves et al. — Ferromagnetism from the geometry of localized wavefunctions in moiré systems
+  2606.11973  Lüthi et al.     — Interfacial Coupling and Sparse Intercalation of 7-Atom-Wide Armchair Graphene Nanoribbons by N-Heterocyclic Carbene Monolayers
+  2606.12530  Vasiliou et al.  — Hidden antiferromagnetism, persistent valley fluctuations, and U(6) crossovers in triangular-lattice M-point moiré materials via determinantal quantum Monte Carlo
+  2606.12665  Zhang et al.     — Hall conductivity reveals the nature of quantum coherence in strongly correlated metals
+  2606.13651  Qin et al.       — Engineering electrically-switchable quantum anomalous Hall states by spin-orbit coupling
+  2606.06389  Persky           — Revealing quantum geometry effects in magic angle twisted bilayer graphene using the circular photogalvanic effect
+  2606.06450  Butler et al.    — 1/3 Fractional and Gapless Integer Quantum Anomalous Hall States in Rhombohedral Graphene
+
+All 11 have validation.status = "needs_review" (expected — arXiv/DOI link
+checks could not run due to network restriction). Do not auto-resolve.
+
+---
+
+## Step 2 — Enrichment
+
+All 11 papers enriched. Fields set per paper:
+  - materials         (Sonnet 4.6)
+  - corresponding_authors / groups  (Sonnet 4.6, from last-author/affiliation)
+  - summary_segments  (Opus 4.8: 2–3 abstract-type + 1 context-type each)
+  - significance_segments  (Opus 4.8: 1–2 per paper)
+  - enriched: true
+
+No PDFs downloaded (Semantic Scholar also returned 403; pdf_path: null on all).
+
+---
+
+## Step 3 — Profile Pass
+
+metadata/people.json created with 49 author stubs.
+No full profiles generated (no author appears as first/corresponding author
+in ≥2 corpus papers yet).
+
+Known deduplication needed when corpus grows:
+  parameswaran_s (2606.12530) and parameswaran_siddharth (2606.13651)
+  are the same person — S. A. Parameswaran / Siddharth A. Parameswaran.
+
+---
+
+## Step 4 — Build Indexes
+
+build_indexes.py ran successfully.
+
+Files generated:
+  indexes/by_material.md        (8 material categories, 11 papers)
+  indexes/by_group.md           (12 groups + "No Group Assigned")
+  indexes/by_first_author.md    (11 entries)
+  metadata/manifest.json        (gdrive_ids all null — Step 5 skipped)
+
+---
+
+## Step 5 — Google Drive Upload
+
+SKIPPED — no Google Drive MCP available in this session.
+manifest.json gdrive_ids remain null.
+
+---
+
+## Step 6 — Commit
+
+Two commits made locally on branch claude/wizardly-bell-1iew0k:
+
+  4ae2fc6  weekly update 2026-06-13 (interim): 11 papers ingested via WebSearch fallback
+  35900ca  weekly update 2026-06-13: 11 new papers
+
+---
+
+## ERROR — Push Blocked
+
+Both push paths return HTTP 403:
+
+1. Local git proxy:
+   $ git push -u origin claude/wizardly-bell-1iew0k
+   remote: Permission to lntkhoi1998/meso-tracker-collector.git denied to lntkhoi1998.
+   fatal: unable to access 'http://127.0.0.1:46523/git/lntkhoi1998/meso-tracker-collector/':
+   The requested URL returned error: 403
+
+2. GitHub MCP (create_or_update_file / push_files):
+   403 Resource not accessible by integration
+
+Root cause: The GitHub App installation token for this session lacks
+`contents: write` permission on lntkhoi1998/meso-tracker-collector.
+
+Fix required (one of):
+  A. Grant the GitHub App write access in repo Settings → GitHub Apps →
+     grant "Contents: Read and write", then re-run:
+       git push -u origin claude/wizardly-bell-1iew0k
+  B. Manually cherry-pick the two local commits above onto the remote branch.
+
+---
+
+## Files to Push (when fixed)
+
+  metadata/papers.json          (~44 KB, 11 fully enriched papers)
+  metadata/people.json          (~10 KB, 49 stubs)
+  metadata/manifest.json        (<1 KB)
+  indexes/by_material.md
+  indexes/by_group.md
+  indexes/by_first_author.md
