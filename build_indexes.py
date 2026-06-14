@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-build_indexes.py — Regenerates markdown index views and manifest.json.
+build_indexes.py — Regenerates markdown index views from papers.json.
 
 Reads metadata/papers.json. Writes:
   indexes/by_material.md
   indexes/by_group.md
   indexes/by_first_author.md
-  metadata/manifest.json
+
+All files are committed to GitHub; the website reads them via raw.githubusercontent.com.
 """
 
 import datetime
@@ -19,10 +20,7 @@ METADATA_DIR  = BASE_DIR / "metadata"
 INDEXES_DIR   = BASE_DIR / "indexes"
 PAPERS_JSON   = METADATA_DIR / "papers.json"
 PEOPLE_JSON   = METADATA_DIR / "people.json"
-MANIFEST_JSON = METADATA_DIR / "manifest.json"
-
-GDRIVE_FOLDER_ID = "1Zru4o_r3wTqeEu55yK88F40b85Q5YlEy"
-ARXIV_ABS = "https://arxiv.org/abs"
+ARXIV_ABS     = "https://arxiv.org/abs"
 
 TYPE_LABELS = {
     "experimental": "🔬 exp",
@@ -159,36 +157,6 @@ def build_by_first_author(papers):
     return "\n".join(lines)
 
 
-# ── manifest.json ──────────────────────────────────────────────────────────────
-def build_manifest(existing):
-    old_files = existing.get("files", {})
-
-    def keep_id(key):
-        return (old_files.get(key) or {}).get("gdrive_id")
-
-    return {
-        "gdrive_folder_id": GDRIVE_FOLDER_ID,
-        "generated": datetime.datetime.utcnow().isoformat() + "Z",
-        "files": {
-            "papers_json": {
-                "filename":  "papers.json",
-                "path":      "metadata/papers.json",
-                "gdrive_id": keep_id("papers_json"),
-            },
-            "people_json": {
-                "filename":  "people.json",
-                "path":      "metadata/people.json",
-                "gdrive_id": keep_id("people_json"),
-            },
-            "manifest_json": {
-                "filename":  "manifest.json",
-                "path":      "metadata/manifest.json",
-                "gdrive_id": keep_id("manifest_json"),
-            },
-        },
-    }
-
-
 # ── Stats ──────────────────────────────────────────────────────────────────────
 def print_stats(papers):
     total    = len(papers)
@@ -211,8 +179,7 @@ def print_stats(papers):
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main():
     ensure_dirs()
-    papers   = load_json(PAPERS_JSON, [])
-    existing = load_json(MANIFEST_JSON, {})
+    papers = load_json(PAPERS_JSON, [])
 
     if not papers:
         print("No papers found in metadata/papers.json — nothing to index.")
@@ -222,7 +189,6 @@ def main():
     write_text(INDEXES_DIR / "by_material.md",    build_by_material(papers))
     write_text(INDEXES_DIR / "by_group.md",        build_by_group(papers))
     write_text(INDEXES_DIR / "by_first_author.md", build_by_first_author(papers))
-    write_json(MANIFEST_JSON,                       build_manifest(existing))
     print_stats(papers)
     print("Done.")
 
