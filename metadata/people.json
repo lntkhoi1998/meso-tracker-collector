@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "id": "fan-xu",
+    "name": "Fan Xu",
+    "institution": "Shanghai Jiao Tong University",
+    "additional_institutions": [],
+    "field": "2D mesoscopic physics",
+    "photo_filename": null,
+    "photo_path": null,
+    "birth_year": null,
+    "birth_source": "no_source",
+    "birth_note": null,
+    "phd_institution": null,
+    "phd_year": null,
+    "phd_advisor": null,
+    "phd_thesis": null,
+    "phd_source": "no_source",
+    "postdoc": [
+      {"institution": "Cornell University", "advisor": "Kin Fai Mak and Jie Shan", "years": "2018-2021"}
+    ],
+    "postdoc_source": "estimated",
+    "career": [
+      {"years": "2021-2025", "role": "Tenure-Track Associate Professor, School of Physics and Astronomy", "type": "faculty", "source": "estimated", "note": "SJTU 2021.6-2025.7 per university profile"}
+    ],
+    "significance": "Fan Xu is an experimental condensed-matter physicist working on topological and correlated phases in two-dimensional moiré systems. He is first author on the report of integer and fractional quantum anomalous Hall effects, reentrant quantum anomalous Hall behavior, and superconductivity within the first moiré Chern band of twisted bilayer MoTe2. His training spans postdoctoral work in the twisted-TMD group at Cornell and a faculty position at Shanghai Jiao Tong University, placing him at the center of the moiré MoTe2 effort.",
+    "influence": [],
+    "rising": true,
+    "landmark_papers": [
+      {"title": "Signatures of unconventional superconductivity near reentrant and fractional quantum anomalous Hall insulators", "ref": "F. Xu et al., arXiv:2504.06972 (2025)"}
+    ],
+    "websites": [
+      {"label": "Lab website", "url": "https://www.physics.sjtu.edu.cn/en/jsml/litingxin.html"}
+    ],
+    "last_verified": "2026-06-14",
+    "next_verify": "2026-09-12",
+    "changelog": [{"date": "2026-06-14", "note": "Initial profile generated"}],
+    "corpus_papers": ["2504.06972"],
+    "profile_status": "full"
+  },
+  {
+    "id": "tingxin-li",
+    "name": "Tingxin Li",
+    "institution": "Shanghai Jiao Tong University",
+    "additional_institutions": ["Tsung-Dao Lee Institute"],
+    "field": "2D mesoscopic physics",
+    "photo_filename": null,
+    "photo_path": null,
+    "birth_year": null,
+    "birth_source": "no_source",
+    "birth_note": null,
+    "phd_institution": null,
+    "phd_year": null,
+    "phd_advisor": null,
+    "phd_thesis": null,
+    "phd_source": "no_source",
+    "postdoc": [],
+    "postdoc_source": "no_source",
+    "career": [
+      {"years": null, "role": "Professor, School of Physics and Astronomy and Tsung-Dao Lee Institute", "type": "faculty", "source": "estimated", "note": "Per SJTU physics department listing"}
+    ],
+    "significance": "Tingxin Li is an experimental condensed-matter physicist at Shanghai Jiao Tong University and the Tsung-Dao Lee Institute, leading work on correlated and topological states in moiré transition-metal-dichalcogenide systems. He is associated with the observation of integer and fractional quantum anomalous Hall effects in twisted bilayer MoTe2 and with earlier work on quantum anomalous Hall physics from intertwined moiré bands. As corresponding/senior author on the twisted MoTe2 superconductivity report, his group is a central contributor to the experimental study of fractional quantum anomalous Hall states and pairing in flat Chern bands.",
+    "influence": [],
+    "rising": false,
+    "landmark_papers": [
+      {"title": "Observation of integer and fractional quantum anomalous Hall effects in twisted bilayer MoTe2", "ref": "Phys. Rev. X 13, 031037 (2023)"},
+      {"title": "Quantum anomalous Hall effect from intertwined moire bands", "ref": "Nature 600, 641-646 (2021)"}
+    ],
+    "websites": [
+      {"label": "Lab website", "url": "https://www.physics.sjtu.edu.cn/en/jsml/litingxin.html"}
+    ],
+    "last_verified": "2026-06-14",
+    "next_verify": "2026-09-12",
+    "changelog": [{"date": "2026-06-14", "note": "Initial profile generated"}],
+    "corpus_papers": ["2504.06972"],
+    "profile_status": "full"
+  }
+]

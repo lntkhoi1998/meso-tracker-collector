@@ -1,1 +1,81 @@
-[]
+[
+  {
+    "arxiv_id": "2504.06972",
+    "version_id": "2504.06972",
+    "title": "Signatures of unconventional superconductivity near reentrant and fractional quantum anomalous Hall insulators",
+    "abstract": "Two-dimensional moiré Chern bands provide an exceptional platform for exploring a variety of many-body quantum phases at zero magnetic field within a lattice system. Flat Chern bands can, in principle, support exotic superconducting phases together with fractional topological phases. We report the observation of integer and fractional quantum anomalous Hall effects, the reentrant quantum anomalous Hall effect, and superconductivity within the first moiré Chern band of twisted bilayer MoTe2. This presents the first example of superconductivity emerging within a flat Chern band that simultaneously hosts fractional quantum anomalous effects, a phenomenon never observed in any other systems. The superconducting phase emerges from a normal state exhibiting anomalous Hall effects and sustains a large perpendicular critical magnetic field.",
+    "authors": [
+      "Fan Xu",
+      "Zheng Sun",
+      "Jiayi Li",
+      "Ce Zheng",
+      "Cheng Xu",
+      "Jingjing Gao",
+      "Tongtong Jia",
+      "Yanfei Su",
+      "Kenji Watanabe",
+      "Takashi Taniguchi",
+      "Bingbing Tong",
+      "Li Lu",
+      "Jinfeng Jia",
+      "Zhiwen Shi",
+      "Shengwei Jiang",
+      "Junhao Lin",
+      "Yuanbo Zhang",
+      "Yang Zhang",
+      "Shiming Lei",
+      "Xiaoxue Liu",
+      "Tingxin Li"
+    ],
+    "first_author": "Fan Xu",
+    "arxiv_affiliations": [
+      "School of Physics and Astronomy, Shanghai Jiao Tong University"
+    ],
+    "published": "2025-04-09",
+    "categories": [
+      "cond-mat.mes-hall"
+    ],
+    "doi": null,
+    "url": "https://arxiv.org/abs/2504.06972",
+    "pdf_path": null,
+    "paper_type": "experimental",
+    "materials": [
+      "twisted MoTe2"
+    ],
+    "corresponding_authors": [],
+    "groups": [
+      "Tingxin Li (Shanghai Jiao Tong University)"
+    ],
+    "summary_segments": [
+      {"type": "abstract", "text": "Transport measurements on twisted bilayer MoTe2 reveal integer and fractional quantum anomalous Hall effects, a reentrant quantum anomalous Hall effect, and superconductivity, all hosted within the first moiré Chern band at zero magnetic field."},
+      {"type": "abstract", "text": "The superconducting phase develops out of a normal state that itself displays anomalous Hall behavior, and it withstands a large perpendicular critical magnetic field."},
+      {"type": "abstract", "text": "This is reported as the first case in which superconductivity arises inside a flat Chern band that concurrently supports fractional quantum anomalous Hall states, a coexistence not seen in other platforms."},
+      {"type": "context", "note": "Situates the flat-Chern-band setting for a specialist reader", "text": "Twisted bilayer MoTe2 realizes topological moiré flat bands carrying nonzero Chern number, which support fractional quantum anomalous Hall states at zero field — the lattice analogue of fractional quantum Hall physics without an external magnetic field. Co-locating superconductivity in the same band is of interest for whether pairing can inherit nontrivial band topology."},
+      {"type": "context", "note": "Clarifies why the normal-state anomalous Hall response is notable", "text": "Superconductivity emerging from a time-reversal-symmetry-broken, anomalous-Hall normal state is a natural route to consider unconventional or topological pairing, since the parent state is not a conventional Fermi liquid."}
+    ],
+    "significance_segments": [
+      {"type": "context", "note": "Why the coexistence matters for the field", "text": "Observing superconductivity in the same flat Chern band that hosts fractional quantum anomalous Hall states places pairing and fractionalized topological order in direct proximity within one tunable system, sharpening the experimental question of whether superconductivity in such bands is unconventional and topologically nontrivial."},
+      {"type": "abstract", "text": "Because the superconductivity emerges from an anomalous-Hall normal state and survives a large perpendicular critical field, the result opens an experimental handle for probing the symmetry and robustness of pairing in topological moiré flat bands."}
+    ],
+    "validation": {
+      "checks": {
+        "arxiv_resolves": false,
+        "doi_matches_title": null,
+        "pdf_title_match": null,
+        "links_live": false,
+        "authors_complete": true,
+        "date_valid": true
+      },
+      "failed": [
+        "arxiv_resolves",
+        "links_live"
+      ],
+      "status": "needs_review",
+      "report": {
+        "arxiv_resolves": "arXiv API unreachable from environment (network egress blocked)",
+        "links_live": "arXiv URL unreachable from environment (network egress blocked)"
+      }
+    },
+    "enriched": true
+  }
+]
