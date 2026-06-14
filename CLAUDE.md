@@ -273,39 +273,27 @@ python build_indexes.py
 ```
 
 Regenerates `indexes/by_material.md`, `indexes/by_group.md`,
-`indexes/by_first_author.md`, and `metadata/manifest.json`.
+`indexes/by_first_author.md`.
 
 Fix `papers.json` before re-running if this errors. Do not proceed to Step 5
 if this step fails.
 
 ---
 
-## Step 5 — Upload to Google Drive
+## Step 5 — Commit and Push to GitHub
 
 **Model: `claude-sonnet-4-6`**
-
-Use the Google Drive MCP. Upload to folder `1Zru4o_r3wTqeEu55yK88F40b85Q5YlEy`.
-
-| Local path | Drive destination | Manifest key |
-|---|---|---|
-| `metadata/papers.json` | `metadata/papers.json` | `files.papers_json.gdrive_id` |
-| `metadata/people.json` | `metadata/people.json` | `files.people_json.gdrive_id` |
-| `indexes/by_material.md` | `indexes/by_material.md` | — |
-| `indexes/by_group.md` | `indexes/by_group.md` | — |
-| `indexes/by_first_author.md` | `indexes/by_first_author.md` | — |
-| `papers/*.pdf` (new only) | `papers/*.pdf` | — |
-
-After uploading `papers.json` and `people.json`, write their Drive file IDs
-into `manifest.json`, then upload `manifest.json` and write its own ID back.
-
----
-
-## Step 6 — Commit
 
 ```bash
 git add metadata/ indexes/ papers/
 git commit -m "weekly update $(date +%Y-%m-%d): N new papers"
+git push origin main
 ```
+
+Where N is the count of new papers from Step 1 output.
+
+The website reads `papers.json` and `people.json` directly from GitHub raw URLs —
+no upload step needed. Everything is live as soon as the push completes.
 
 ---
 
@@ -325,7 +313,7 @@ filename: `{arxiv_id_underscored}.pdf`.
 | PDF download fails | Set `pdf_path: null`; skip `pdf_title_match`; continue |
 | Profile search returns nothing | Use `"no_source"` after genuine search; do not fabricate |
 | `build_indexes.py` errors | Fix `papers.json` first; do not commit broken indexes |
-| Any Step 1–4 error unresolved | Do not proceed to Step 6 |
+| Any Step 1–4 error unresolved | Do not push to GitHub |
 
 ---
 
