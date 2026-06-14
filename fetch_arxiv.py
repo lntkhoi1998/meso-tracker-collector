@@ -3,8 +3,14 @@
 fetch_arxiv.py — Deterministic ingestion for the 2D mesoscopic physics tracker.
 
 Pure standard library. No pip. Idempotent — skips already-tracked arXiv IDs.
-Discovery: arXiv API (cond-mat.mes-hall, past 8 days).
-Enrichment: Semantic Scholar per-paper lookup for open-access PDF URLs and DOI.
+
+TWO MODES:
+  TARGET_IDS (non-empty) — fetches specific papers by arXiv ID. Use for testing
+                            and manual backfill. Ignores date range.
+  TARGET_IDS = []         — weekly mode: fetches cond-mat.mes-hall papers from
+                            the past LOOKBACK_DAYS days.
+
+Enrichment: Semantic Scholar per-paper lookup for open-access PDF URL and DOI.
 Downloads open-access PDFs. Writes skeleton records to metadata/papers.json.
 Runs Tier 2 validation at write time.
 """
@@ -14,7 +20,6 @@ import difflib
 import json
 import os
 import re
-import sys
 import time
 import urllib.error
 import urllib.parse
@@ -23,22 +28,26 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-CATEGORY       = "cond-mat.mes-hall"
-LOOKBACK_DAYS  = 8
-MAX_RESULTS    = 200          # arXiv results per query
+# To target specific papers, list their arXiv IDs here.
+# Leave empty [] for the normal weekly date-range scrape.
+TARGET_IDS = ["2504.06972"]
 
-BASE_DIR       = Path(__file__).parent
-METADATA_DIR   = BASE_DIR / "metadata"
-PAPERS_DIR     = BASE_DIR / "papers"
-PAPERS_JSON    = METADATA_DIR / "papers.json"
+CATEGORY      = "cond-mat.mes-hall"
+LOOKBACK_DAYS = 8
+MAX_RESULTS   = 200
 
-ARXIV_API      = "http://export.arxiv.org/api/query"
-ARXIV_ABS      = "https://arxiv.org/abs"
-ARXIV_PDF      = "https://arxiv.org/pdf"
-S2_API         = "https://api.semanticscholar.org/graph/v1"
+BASE_DIR      = Path(__file__).parent
+METADATA_DIR  = BASE_DIR / "metadata"
+PAPERS_DIR    = BASE_DIR / "papers"
+PAPERS_JSON   = METADATA_DIR / "papers.json"
 
-USER_AGENT     = "2DMesoscopicTracker/1.0 (research; contact via GitHub)"
-S2_FIELDS      = "externalIds,openAccessPdf,publicationDate,authors,journal"
+ARXIV_API     = "http://export.arxiv.org/api/query"
+ARXIV_ABS     = "https://arxiv.org/abs"
+ARXIV_PDF     = "https://arxiv.org/pdf"
+S2_API        = "https://api.semanticscholar.org/graph/v1"
+
+USER_AGENT    = "2DMesoscopicTracker/1.0 (research; contact via GitHub)"
+S2_FIELDS     = "externalIds,openAccessPdf,publicationDate,authors,journal"
 
 
 # ── Directory helpers ──────────────────────────────────────────────────────────
@@ -78,8 +87,7 @@ def _request(url, method="GET", timeout=30):
 
 
 def fetch(url, timeout=30):
-    body, status = _request(url, timeout=timeout)
-    return body, status
+    return _request(url, timeout=timeout)
 
 
 def head_status(url, timeout=15):
@@ -87,20 +95,29 @@ def head_status(url, timeout=15):
     return status
 
 
-# ── arXiv discovery ────────────────────────────────────────────────────────────
-def _arxiv_date_window(start, end):
-    """Return arXiv submittedDate range string."""
-    s = start.strftime("%Y%m%d") + "000000"
-    e = end.strftime("%Y%m%d") + "235959"
-    return f"[{s}+TO+{e}]"
+# ── arXiv: fetch by specific IDs ───────────────────────────────────────────────
+def query_arxiv_by_ids(ids):
+    """Fetch specific papers by arXiv ID list. Used in TARGET_IDS mode."""
+    params = urllib.parse.urlencode({
+        "id_list": ",".join(ids),
+        "max_results": len(ids),
+    })
+    url = f"{ARXIV_API}?{params}"
+    body, status = fetch(url, timeout=45)
+    if status != 200 or not body:
+        print(f"  [arXiv] HTTP {status}")
+        return []
+    papers = _parse_arxiv_xml(body.decode("utf-8"))
+    print(f"  [arXiv] {len(papers)} papers returned")
+    return papers
 
 
+# ── arXiv: fetch by date range ─────────────────────────────────────────────────
 def query_arxiv(start_date, end_date):
-    """
-    Fetch cond-mat.mes-hall papers submitted in [start_date, end_date].
-    Returns list of raw paper dicts (Tier 1 fields only — from API).
-    """
-    window = _arxiv_date_window(start_date, end_date)
+    """Fetch cond-mat.mes-hall papers submitted in [start_date, end_date]."""
+    s = start_date.strftime("%Y%m%d") + "000000"
+    e = end_date.strftime("%Y%m%d") + "235959"
+    window = f"[{s}+TO+{e}]"
     search = f"cat:{CATEGORY}+AND+submittedDate:{window}"
     params = urllib.parse.urlencode({
         "search_query": search,
@@ -111,13 +128,14 @@ def query_arxiv(start_date, end_date):
     url = f"{ARXIV_API}?{params}"
     body, status = fetch(url, timeout=45)
     if status != 200 or not body:
-        print(f"  [arXiv] HTTP {status} — no results")
+        print(f"  [arXiv] HTTP {status}")
         return []
     papers = _parse_arxiv_xml(body.decode("utf-8"))
     print(f"  [arXiv] {len(papers)} papers returned")
     return papers
 
 
+# ── arXiv XML parser ───────────────────────────────────────────────────────────
 def _parse_arxiv_xml(xml_text):
     ns = {
         "atom":  "http://www.w3.org/2005/Atom",
@@ -126,7 +144,7 @@ def _parse_arxiv_xml(xml_text):
     root = ET.fromstring(xml_text)
     out = []
     for entry in root.findall("atom:entry", ns):
-        raw_id = (entry.findtext("atom:id", "", ns) or "").split("/abs/")[-1].strip()
+        raw_id    = (entry.findtext("atom:id", "", ns) or "").split("/abs/")[-1].strip()
         base_id   = re.sub(r"v\d+$", "", raw_id)
         version_id = raw_id
 
@@ -152,46 +170,39 @@ def _parse_arxiv_xml(xml_text):
             continue
 
         out.append({
-            "arxiv_id":          base_id,
-            "version_id":        version_id,
-            "title":             title,
-            "abstract":          abstract,
-            "authors":           [a for a in authors if a],
-            "first_author":      authors[0] if authors else "",
+            "arxiv_id":           base_id,
+            "version_id":         version_id,
+            "title":              title,
+            "abstract":           abstract,
+            "authors":            [a for a in authors if a],
+            "first_author":       authors[0] if authors else "",
             "arxiv_affiliations": affiliations,
-            "published":         published,
-            "categories":        categories,
-            "doi":               doi,
-            "url":               f"{ARXIV_ABS}/{base_id}",
-            "_s2_pdf_url":       None,
+            "published":          published,
+            "categories":         categories,
+            "doi":                doi,
+            "url":                f"{ARXIV_ABS}/{base_id}",
+            "_s2_pdf_url":        None,
         })
     return out
 
 
-# ── Semantic Scholar enrichment (per-paper lookup) ─────────────────────────────
+# ── Semantic Scholar enrichment ────────────────────────────────────────────────
 def enrich_from_s2(arxiv_id):
-    """
-    Look up a single paper on S2 by arXiv ID.
-    Returns (open_access_pdf_url, doi) or (None, None) on failure.
-    """
+    """Look up a paper on S2 by arXiv ID. Returns (pdf_url, doi)."""
     url = f"{S2_API}/paper/arXiv:{arxiv_id}?fields={S2_FIELDS}"
     body, status = fetch(url, timeout=20)
     if status != 200 or not body:
         return None, None
     data = json.loads(body)
-    oa = data.get("openAccessPdf")
-    pdf_url = oa.get("url") if oa else None
+    oa  = data.get("openAccessPdf")
+    pdf = oa.get("url") if oa else None
     doi = (data.get("externalIds") or {}).get("DOI")
-    return pdf_url, doi
+    return pdf, doi
 
 
 # ── PDF download ───────────────────────────────────────────────────────────────
 def download_pdf(arxiv_id, s2_pdf_url=None):
-    """
-    Download open-access PDF. Returns relative path string or None.
-    Tries S2 URL first, then arXiv direct.
-    Never touches paywalled content.
-    """
+    """Download open-access PDF. Returns relative path string or None."""
     safe_id  = arxiv_id.replace("/", "_")
     filename = f"{safe_id}.pdf"
     dest     = PAPERS_DIR / filename
@@ -214,12 +225,8 @@ def download_pdf(arxiv_id, s2_pdf_url=None):
     return None
 
 
-# ── Minimal PDF text peek (Tier 2 pdf_title_match) ────────────────────────────
+# ── Minimal PDF text peek ──────────────────────────────────────────────────────
 def _pdf_first_page_text(pdf_path):
-    """
-    Extract a rough text sample from the first 12 KB of a PDF using stdlib only.
-    Looks for BT…ET text blocks. Enough to check if title words appear.
-    """
     try:
         with open(pdf_path, "rb") as fh:
             raw = fh.read(12288)
@@ -240,23 +247,19 @@ def _sim(a, b):
 
 
 def run_tier2(record):
-    """
-    Run all six Tier 2 checks. Returns validation dict.
-    Sleeps between network calls to stay polite.
-    """
     checks = {}
     failed = []
     report = {}
 
-    arxiv_id = record["arxiv_id"]
-    title    = record["title"]
-    doi      = record.get("doi")
-    url      = record.get("url", "")
-    authors  = record.get("authors", [])
+    arxiv_id  = record["arxiv_id"]
+    title     = record["title"]
+    doi       = record.get("doi")
+    url       = record.get("url", "")
+    authors   = record.get("authors", [])
     published = record.get("published", "")
     pdf_path  = record.get("pdf_path")
 
-    # 1. arxiv_resolves ─────────────────────────────────────────────────────────
+    # 1. arxiv_resolves
     api_url = f"{ARXIV_API}?id_list={arxiv_id}"
     body, status = fetch(api_url, timeout=20)
     time.sleep(1)
@@ -274,21 +277,20 @@ def run_tier2(record):
         else:
             checks["arxiv_resolves"] = False
             failed.append("arxiv_resolves")
-            report["arxiv_resolves"] = f"arXiv returned no entry for {arxiv_id}"
+            report["arxiv_resolves"] = f"No entry returned for {arxiv_id}"
     else:
         checks["arxiv_resolves"] = False
         failed.append("arxiv_resolves")
         report["arxiv_resolves"] = f"arXiv API HTTP {status}"
 
-    # 2. doi_matches_title ──────────────────────────────────────────────────────
+    # 2. doi_matches_title
     if doi:
         doi_url = f"https://doi.org/{doi}"
         body, status = fetch(doi_url, timeout=20)
         time.sleep(1)
         if status == 200 and body:
             page = body.decode("utf-8", errors="replace")
-            title_start = title.lower()[:40]
-            if title_start in page.lower():
+            if title.lower()[:40] in page.lower():
                 checks["doi_matches_title"] = True
             else:
                 checks["doi_matches_title"] = False
@@ -299,26 +301,24 @@ def run_tier2(record):
             failed.append("doi_matches_title")
             report["doi_matches_title"] = f"DOI URL HTTP {status}"
     else:
-        checks["doi_matches_title"] = None  # skipped — no DOI
+        checks["doi_matches_title"] = None
 
-    # 3. pdf_title_match ────────────────────────────────────────────────────────
+    # 3. pdf_title_match
     if pdf_path and Path(pdf_path).exists():
         text = _pdf_first_page_text(pdf_path)
         title_words = [w for w in title.split() if len(w) >= 5]
         if title_words:
-            hit_ratio = sum(1 for w in title_words if w.lower() in text.lower()) / len(title_words)
-            checks["pdf_title_match"] = hit_ratio >= 0.5
+            ratio = sum(1 for w in title_words if w.lower() in text.lower()) / len(title_words)
+            checks["pdf_title_match"] = ratio >= 0.5
             if not checks["pdf_title_match"]:
                 failed.append("pdf_title_match")
-                report["pdf_title_match"] = (
-                    f"Only {hit_ratio:.0%} of title words found in PDF first page"
-                )
+                report["pdf_title_match"] = f"Only {ratio:.0%} of title words found in PDF first page"
         else:
-            checks["pdf_title_match"] = True  # nothing to check
+            checks["pdf_title_match"] = True
     else:
-        checks["pdf_title_match"] = None  # skipped — no PDF
+        checks["pdf_title_match"] = None
 
-    # 4. links_live ─────────────────────────────────────────────────────────────
+    # 4. links_live
     live_failures = []
     ax_status = head_status(url)
     if ax_status not in (200, 301, 302):
@@ -336,7 +336,7 @@ def run_tier2(record):
     else:
         checks["links_live"] = True
 
-    # 5. authors_complete ───────────────────────────────────────────────────────
+    # 5. authors_complete
     if authors and all(isinstance(a, str) and a.strip() for a in authors):
         checks["authors_complete"] = True
     else:
@@ -344,7 +344,7 @@ def run_tier2(record):
         failed.append("authors_complete")
         report["authors_complete"] = "Authors list empty or contains blank entries"
 
-    # 6. date_valid ─────────────────────────────────────────────────────────────
+    # 6. date_valid
     try:
         dt = datetime.date.fromisoformat(published)
         if datetime.date(1990, 1, 1) <= dt <= datetime.date.today():
@@ -369,25 +369,26 @@ def run_tier2(record):
 # ── Skeleton builder ───────────────────────────────────────────────────────────
 def make_skeleton(base, pdf_path, validation):
     return {
-        "arxiv_id":            base["arxiv_id"],
-        "version_id":          base.get("version_id", base["arxiv_id"]),
-        "title":               base["title"],
-        "abstract":            base["abstract"],
-        "authors":             base["authors"],
-        "first_author":        base["first_author"],
-        "arxiv_affiliations":  base.get("arxiv_affiliations", []),
-        "published":           base["published"],
-        "categories":          base["categories"],
-        "doi":                 base.get("doi"),
-        "url":                 base["url"],
-        "pdf_path":            pdf_path,
-        "materials":           [],
+        "arxiv_id":              base["arxiv_id"],
+        "version_id":            base.get("version_id", base["arxiv_id"]),
+        "title":                 base["title"],
+        "abstract":              base["abstract"],
+        "authors":               base["authors"],
+        "first_author":          base["first_author"],
+        "arxiv_affiliations":    base.get("arxiv_affiliations", []),
+        "published":             base["published"],
+        "categories":            base["categories"],
+        "doi":                   base.get("doi"),
+        "url":                   base["url"],
+        "pdf_path":              pdf_path,
+        "paper_type":            None,        # set during enrichment: experimental|theoretical|review
+        "materials":             [],
         "corresponding_authors": [],
-        "groups":              [],
-        "summary_segments":    [],
+        "groups":                [],
+        "summary_segments":      [],
         "significance_segments": [],
-        "validation":          validation,
-        "enriched":            False,
+        "validation":            validation,
+        "enriched":              False,
     }
 
 
@@ -397,17 +398,20 @@ def main():
     papers  = load_papers()
     tracked = existing_ids(papers)
 
-    today = datetime.date.today()
-    start = today - datetime.timedelta(days=LOOKBACK_DAYS)
-    print(f"Fetching {CATEGORY} papers: {start.isoformat()} → {today.isoformat()}")
+    if TARGET_IDS:
+        print(f"TARGET_IDS mode — fetching {len(TARGET_IDS)} specific paper(s): {TARGET_IDS}")
+        raw_papers = query_arxiv_by_ids(TARGET_IDS)
+    else:
+        today = datetime.date.today()
+        start = today - datetime.timedelta(days=LOOKBACK_DAYS)
+        print(f"Weekly mode — fetching {CATEGORY}: {start.isoformat()} → {today.isoformat()}")
+        raw_papers = query_arxiv(start, today)
 
-    # Step 1: Discover via arXiv (category-accurate)
-    raw_papers = query_arxiv(start, today)
-
-    # Step 2: Enrich each with Semantic Scholar metadata
+    # Semantic Scholar enrichment
     new_records = []
     for p in raw_papers:
         if p["arxiv_id"] in tracked:
+            print(f"  Skipping {p['arxiv_id']} — already tracked")
             continue
         print(f"  [S2 lookup] {p['arxiv_id']}")
         s2_pdf, s2_doi = enrich_from_s2(p["arxiv_id"])
@@ -418,23 +422,19 @@ def main():
             p["doi"] = s2_doi
         new_records.append(p)
 
-    print(f"\n{len(new_records)} new papers to process")
+    print(f"\n{len(new_records)} new paper(s) to process")
 
-    # Step 3: Download PDFs, validate, build skeletons
     added = 0
     for rec in new_records:
         arxiv_id = rec["arxiv_id"]
         print(f"\n→ {arxiv_id}: {rec['title'][:65]}...")
 
-        # PDF
         s2_pdf_url = rec.pop("_s2_pdf_url", None)
         pdf_path   = download_pdf(arxiv_id, s2_pdf_url)
         print(f"  pdf: {pdf_path or 'unavailable'}")
 
-        # Skeleton (needed for validation)
-        skeleton = make_skeleton(rec, pdf_path, {})
+        skeleton   = make_skeleton(rec, pdf_path, {})
 
-        # Tier 2 validation
         print("  running Tier 2 validation...")
         validation = run_tier2(skeleton)
         skeleton["validation"] = validation
@@ -449,10 +449,10 @@ def main():
         papers.append(skeleton)
         tracked.add(arxiv_id)
         added += 1
-        save_papers(papers)   # save after each paper (crash-safe)
+        save_papers(papers)
         time.sleep(1)
 
-    print(f"\nDone. Added {added} new papers. Total in corpus: {len(papers)}")
+    print(f"\nDone. Added {added} paper(s). Total in corpus: {len(papers)}")
 
 
 if __name__ == "__main__":
