@@ -3,27 +3,26 @@
 This file defines the complete weekly automated routine. Execute every step in
 order. Do not skip or merge steps. Model allocation is mandatory.
 
-**Google Drive folder:** `1Zru4o_r3wTqeEu55yK88F40b85Q5YlEy`
-
 ---
 
 ## Model Allocation
 
 | Task | Model |
 |---|---|
-| Running `fetch_arxiv.py`, link checking, material classification, index building | `claude-sonnet-4-6` |
-| Profile biographical research, significance writing, context-layer summaries, affiliation verification | `claude-opus-4-8` |
+| Running `fetch_openalex.py`, material classification, index building | `claude-sonnet-4-6` |
+| Profile generation (all fields except significance) | `claude-sonnet-4-6` |
+| Profile `significance` field, summary/context segments, significance segments | `claude-opus-4-8` |
 
 ---
 
 ## Operating Modes
 
 **TARGET_IDS mode** (testing / manual backfill): set `TARGET_IDS = ["arxiv_id", ...]`
-in `fetch_arxiv.py`. Fetches specific papers by ID, ignores date range. Use this
+in `fetch_openalex.py`. Fetches specific papers by ID, ignores date range. Use this
 for testing the pipeline end-to-end on known papers before switching to weekly mode.
 
-**Weekly mode**: set `TARGET_IDS = []` in `fetch_arxiv.py`. Fetches all
-`cond-mat.mes-hall` papers from the past 8 days.
+**Weekly mode**: set `TARGET_IDS = []` in `fetch_openalex.py`. Fetches all
+`cond-mat.mes-hall` papers from the past 8 days via OpenAlex.
 
 ---
 
@@ -32,21 +31,24 @@ for testing the pipeline end-to-end on known papers before switching to weekly m
 **Model: `claude-sonnet-4-6`**
 
 ```bash
-python fetch_arxiv.py
+python fetch_openalex.py
 ```
 
-In TARGET_IDS mode: fetches the listed arXiv IDs directly.
-In weekly mode: queries arXiv for `cond-mat.mes-hall` from the past 8 days,
-then enriches each via Semantic Scholar (open-access PDF URL, DOI).
+In TARGET_IDS mode: fetches the listed arXiv IDs directly from OpenAlex.
+In weekly mode: queries OpenAlex for `cond-mat.mes-hall` papers from the past 8 days.
 
-Downloads open-access PDFs to `papers/`. Writes skeleton records to
-`metadata/papers.json`. Skips already-tracked IDs. Runs Tier 2 validation
-and saves after every paper.
+For each new paper:
+- Downloads open-access PDF to `papers/` (from OpenAlex pdf_url)
+- Extracts corresponding authors from PDF first page (* marker via pdftotext)
+- Falls back to last author if no * marker found
+- Writes skeleton record to `metadata/papers.json`
+- Skips already-tracked arXiv IDs (idempotent)
+- Saves after every paper
+
+If OpenAlex is unreachable: fail loudly, do not proceed. No fallbacks.
 
 After running, note how many new papers were added (use this count in the
-Step 6 commit message) and any `needs_review` papers.
-
-If Semantic Scholar is unreachable: proceed with arXiv data only, log the fallback.
+Step 5 commit message).
 
 ---
 
@@ -67,8 +69,7 @@ Read the title and abstract. Set `paper_type` to exactly one of:
 | `"theoretical"` | Proposes or derives a model, computes a prediction, no new experimental data |
 | `"review"` | Surveys or synthesizes existing literature |
 
-If genuinely ambiguous (e.g. a theory paper with minor numerical validation):
-pick the dominant character. Do not leave as `null`.
+If genuinely ambiguous: pick the dominant character. Do not leave as `null`.
 
 ### 2b — Material Classification
 
@@ -103,33 +104,18 @@ Use only the canonical names below. Add new materials in the same style
 If purely theoretical with no specific material: use `[]`.
 If unclear: omit rather than guess.
 
-### 2c — Corresponding Author Identification
+### 2c — Groups
 
 **Model: `claude-sonnet-4-6`**
 
-If a PDF exists at `pdf_path`, check the first and last pages for markers
-(`*`, `†`, email address, or an explicit note).
+Use `corresponding_authors` already populated by Step 1 (from PDF * markers).
+Format each group as `"PI Name (Institution)"`.
 
-```json
-[{"name": "...", "affiliation": "...", "email": "..."}]
-```
+If `corresponding_authors` is empty: use last author per physics convention.
+If institution is unknown: use `"PI Name (Unknown Institution)"`.
+Do not guess institutions.
 
-No PDF or no clear marker: leave as `[]`. Do not guess.
-
-### 2d — Groups
-
-**Model: `claude-sonnet-4-6`**
-
-Identify the PI(s) whose lab produced the paper. Format: `"PI Name (Institution)"`.
-
-Priority:
-1. Corresponding author (from 2c)
-2. Last author (standard physics convention)
-3. Affiliation strings in `arxiv_affiliations`
-
-If none can be reliably identified: leave as `[]`. Do not guess.
-
-### 2e — Summary Segments
+### 2d — Summary Segments
 
 **Model: `claude-opus-4-8`**
 
@@ -146,16 +132,16 @@ If none can be reliably identified: leave as `[]`. Do not guess.
 Target: 2–3 abstract segments, 1–2 context segments.
 Audience: physics PhD. Concise, no padding.
 
-### 2f — Significance Segments
+### 2e — Significance Segments
 
 **Model: `claude-opus-4-8`**
 
-Same segment structure as 2e.
+Same segment structure as 2d.
 Focus: why this result matters, what question it advances, what it opens up.
 Be specific but conservative — do not overstate.
 Target: 1–2 segments.
 
-### 2g — Mark Enriched
+### 2f — Mark Enriched
 
 Set `enriched: true`. Save `papers.json`.
 
@@ -163,22 +149,23 @@ Set `enriched: true`. Save `papers.json`.
 
 ## Step 3 — Profile Pass
 
-**Model: `claude-opus-4-8`**
-
 Load `metadata/people.json` (create as `[]` if missing).
 
 ### 3a — Who gets a profile?
 
-Only two categories of people get profiles:
+Only two categories:
 
 | Category | Definition | Profile type |
 |---|---|---|
 | First author | Listed as first author on any corpus paper | Full profile |
-| PI | Identified as corresponding author or last author (group leader) on any corpus paper | Full profile |
+| PI | In `corresponding_authors` on any corpus paper | Full profile |
 
-**Everyone else — middle authors, co-authors who are neither first nor PI — gets no profile entry at all.** Do not create stubs for them.
+Everyone else gets no profile entry at all.
 
 ### 3b — Full profile generation
+
+**Model: `claude-sonnet-4-6`** for all fields except `significance`.
+**Model: `claude-opus-4-8`** for the `significance` field only.
 
 Before writing any profile, you **must** actually search for the following.
 Never mark a field `"no_source"` without having genuinely searched.
@@ -236,8 +223,8 @@ Full profile schema:
 }
 ```
 
-**`significance`** — 2–4 sentences grounded in verifiable outputs. Use field
-knowledge but state no specific unverifiable fact.
+**`significance`** (Opus 4.8) — 2–4 sentences grounded in verifiable outputs.
+Use field knowledge but state no specific unverifiable fact.
 
 **`rising`** — set `true` for researchers within ~5 years of first faculty
 position with strong evidence of high-impact work.
@@ -301,7 +288,7 @@ no upload step needed. Everything is live as soon as the push completes.
 
 Never access paywalled content. For paywalled papers: store all metadata,
 set `pdf_path: null`. Website surfaces these as "PDF needed" with the expected
-filename: `{arxiv_id_underscored}.pdf`.
+filename: `{arxiv_id}.pdf`.
 
 ---
 
@@ -309,8 +296,9 @@ filename: `{arxiv_id_underscored}.pdf`.
 
 | Situation | Action |
 |---|---|
-| Semantic Scholar unreachable | Proceed with arXiv data only; log fallback |
-| PDF download fails | Set `pdf_path: null`; skip `pdf_title_match`; continue |
+| OpenAlex unreachable | Fail loudly — do not proceed, no fallbacks |
+| PDF download fails | Set `pdf_path: null`; continue |
+| No * marker in PDF | Fall back to last author as PI |
 | Profile search returns nothing | Use `"no_source"` after genuine search; do not fabricate |
 | `build_indexes.py` errors | Fix `papers.json` first; do not commit broken indexes |
 | Any Step 1–4 error unresolved | Do not push to GitHub |
@@ -319,7 +307,7 @@ filename: `{arxiv_id_underscored}.pdf`.
 
 ## Historical Backfill (Manual — Not Part of Weekly Run)
 
-Use TARGET_IDS mode in `fetch_arxiv.py` for on-demand ingestion of specific
+Use TARGET_IDS mode in `fetch_openalex.py` for on-demand ingestion of specific
 papers (landmark results, papers from conversations, profile needs). The
 idempotency guarantee means re-running over already-ingested papers is safe.
 
