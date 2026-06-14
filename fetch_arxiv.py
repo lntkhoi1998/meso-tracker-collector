@@ -30,7 +30,7 @@ from pathlib import Path
 # ── Configuration ──────────────────────────────────────────────────────────────
 # To target specific papers, list their arXiv IDs here.
 # Leave empty [] for the normal weekly date-range scrape.
-TARGET_IDS = ["2504.06972"]
+TARGET_IDS = []
 
 CATEGORY      = "cond-mat.mes-hall"
 LOOKBACK_DAYS = 8
