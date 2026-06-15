@@ -952,9 +952,33 @@
     "groups": [
       "H. Rotzinger (Karlsruhe Institute of Technology)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors develop a Josephson junction fabrication technique that uses a three-dimensional patterned, low-loss substrate in place of the organic resists commonly used for shadow-evaporated junctions."
+      },
+      {
+        "type": "abstract",
+        "text": "The method enables high-quality trilayer junctions across a wide range of geometries and materials, including high-melting-point superconductors such as tantalum and niobium, with electrodes free of intentionally introduced oxides and organic materials that are known decoherence sources."
+      },
+      {
+        "type": "abstract",
+        "text": "They fabricate and characterize underdamped Nb/AlOx/Nb junctions of various sizes and geometries, arguing such junctions enable quantum circuits operating at higher speeds and elevated temperatures."
+      },
+      {
+        "type": "context",
+        "note": "Why junction materials and cleanliness matter",
+        "text": "Aluminum-based junctions dominate transmon qubits but cap operating temperature and gap energy; resist residues at junction interfaces are a recognized source of two-level-system loss, so resist-free trilayer junctions in higher-gap materials are attractive for higher-temperature or higher-speed superconducting circuits."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it enables",
+        "text": "A resist-free fabrication route compatible with refractory, high-gap superconductors broadens the materials available for low-loss Josephson elements and points toward superconducting circuits that operate at higher frequencies and temperatures than aluminum permits."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.12527",
@@ -989,9 +1013,33 @@
     "groups": [
       "Pablo Sala (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors show that the instability of topological order to wavefunction deformations and to decoherence (the latter probed via syndrome distributions) is generically captured by statistical-mechanics models whose symmetries expose the corrupting anyonic excitations."
+      },
+      {
+        "type": "abstract",
+        "text": "Combining this framework with Monte-Carlo simulations, they resolve the stability of D4 topological order under deformations and quantum channels that proliferate multiple non-Abelian anyon species which individually cannot condense, finding that beyond a finite threshold two such species parasitically condense a shared Abelian fusion outcome and destroy the order."
+      },
+      {
+        "type": "abstract",
+        "text": "Their symmetry-based approach distinguishes the resulting trivial phase from one obtained by condensing all Abelian charges, so the trivial phase retains a memory of which anyons condensed, providing a first step toward identifying symmetries for optimal syndrome-conditioned decoders of non-Abelian topological order."
+      },
+      {
+        "type": "context",
+        "note": "Decoherence of topological order",
+        "text": "Mapping mixed-state topological order under decoherence to classical stat-mech models has become a standard route to locate error thresholds; extending it to non-Abelian orders, where condensation can proceed through shared fusion channels, addresses a genuinely harder and less-understood regime relevant to braiding-based quantum computation."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it advances",
+        "text": "Providing a unified, symmetry-resolved description of how non-Abelian topological order degrades under deformation and noise sharpens the theory of error thresholds in these phases and lays groundwork for decoders tailored to non-Abelian codes."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.11912",
@@ -1026,9 +1074,33 @@
     "groups": [
       "Chui-Zhen Chen (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors show that the intrinsic momentum-dependent exchange field of a three-dimensional p-wave magnet can be tuned against gate-induced Rashba spin-orbit coupling to establish a generalized SU(2) spin-rotation symmetry, which generates a symmetry-protected persistent spin helix combining bulk magnetic exchange energy scales with the macroscopic coherence of symmetry protection."
+      },
+      {
+        "type": "abstract",
+        "text": "Modeling a p-wave magnetic spin field-effect transistor, they obtain high-visibility Datta-Das conductance oscillations controlled purely by electrical gating."
+      },
+      {
+        "type": "abstract",
+        "text": "Quantum transport simulations confirm that this symmetry-engineered regime is exceptionally resilient against strong non-magnetic Anderson disorder and geometric variations."
+      },
+      {
+        "type": "context",
+        "note": "Unconventional magnetism and PSH",
+        "text": "The persistent spin helix arises when Rashba and Dresselhaus-type couplings are balanced to restore an SU(2) symmetry that protects spin coherence against momentum scattering; realizing this protection using the exchange field of p-wave magnets ties it to the recent surge of interest in altermagnets and other unconventional magnets that combine vanishing stray fields with strong spin splitting."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it proposes",
+        "text": "Demonstrating disorder-resilient, electrically controlled spin transport from a symmetry engineered out of unconventional magnetism plus spin-orbit coupling offers a concrete design paradigm for non-magnetized spintronic logic that does not rely on stray fields or fine material tuning."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.12514",
@@ -1064,9 +1136,33 @@
     "groups": [
       "Marc A. Wilde (Technical University of Munich)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors present a temperature-modulated de Haas-van Alphen technique that selectively addresses quantum oscillations of different effective masses, exploiting the non-monotonic amplitude evolution with temperature and field governed by the temperature derivative of the Lifshitz-Kosevich factor, via harmonic temperature modulation and phase-sensitive detection of pick-up-coil voltage."
+      },
+      {
+        "type": "abstract",
+        "text": "Using Zeeman-driven harmonics in the compensated topological semimetal MoSi2 as a linear mass comb spanning 1 to 13 times the base effective mass, they demonstrate experimental tunability of the mass-dependent oscillation amplitudes."
+      },
+      {
+        "type": "abstract",
+        "text": "The method reliably isolates weak contributions from heavy orbits that are inaccessible in conventional dHvA spectra because their frequency peaks overlap with much stronger peaks from lighter orbits."
+      },
+      {
+        "type": "context",
+        "note": "Fermi-surface spectroscopy",
+        "text": "Quantum-oscillation spectroscopy is a primary tool for mapping Fermi surfaces, but heavy-mass orbits are strongly thermally damped and easily buried under dominant light-mass frequencies; a mass-selective filter directly addresses this long-standing limitation of the Lifshitz-Kosevich analysis."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it enables",
+        "text": "Turning the effective mass into a selection knob extends quantum-oscillation spectroscopy to weak heavy-orbit contributions otherwise masked in the frequency spectrum, improving Fermi-surface characterization in multiband metals and topological semimetals."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.11095",
@@ -1103,9 +1199,29 @@
     "groups": [
       "Emanuel Gull (University of Michigan)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors present a quantum impurity solver that combines Hamiltonian-based and diagrammatic approaches: augmenting diagrammatic methods with a small auxiliary bath reduces the residual problem to a regime where low-order perturbation theory is highly accurate and rapidly convergent, sidestepping the bath-size limits of Hamiltonian methods and the sign and convergence problems of purely diagrammatic ones."
+      },
+      {
+        "type": "abstract",
+        "text": "In a simple benchmark the hybrid precision surpasses bold-line calculations by several orders of magnitude; for a strongly interacting two-orbital model with a severe sign problem, convergence is reached at three orders of magnitude lower cost than competing methods; and convergence is markedly accelerated in a difficult realistic problem."
+      },
+      {
+        "type": "context",
+        "note": "Role of impurity solvers",
+        "text": "Quantum impurity solvers are the computational engine of dynamical mean-field theory and its extensions for strongly correlated materials; the perennial tension between exponential Hilbert-space growth in Hamiltonian methods and sign problems in continuous-time Monte Carlo makes a hybrid that mitigates both broadly useful."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "Why it matters",
+        "text": "Establishing a practical route to high-precision impurity solutions at substantially reduced cost, including in sign-problematic multi-orbital settings, can improve the accuracy and reach of DMFT-based studies of correlated electron systems."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10754",
@@ -1141,9 +1257,33 @@
     "groups": [
       "W. Wegscheider (ETH Zurich)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors probe spin polarization and low-energy excitations of fractional quantum Hall states in high-mobility GaAs quantum wells using cavity-polariton spectroscopy, extracting the electron spin polarization versus filling factor from the optical coupling strength of interband Landau-level excitations over the range 1/3 <= nu <= 1."
+      },
+      {
+        "type": "abstract",
+        "text": "They report, for the first time in this regime, complete suppression of the lowest-energy excitation's oscillator strength characteristic of singlet trion formation in fully polarized systems, and find that fully polarized FQH states depolarize symmetrically away from their quantized fillings, analogous to skyrmion behavior near nu=1."
+      },
+      {
+        "type": "abstract",
+        "text": "The depolarization follows an empirical law S = nu*, with S the number of spin flips per added flux quantum and nu* the effective composite-fermion filling, which they interpret as evidence for minimal fractionally charged skyrmions formed from bound spin-flip and quasiparticle excitations."
+      },
+      {
+        "type": "context",
+        "note": "Skyrmions in the quantum Hall regime",
+        "text": "Near nu=1, the lowest charged excitations are spin-textured skyrmions rather than single spin flips; the fractional quantum Hall analogue, where composite-fermion physics predicts fractionally charged skyrmions, has been harder to access optically, making spin-polarization spectroscopy a valuable probe."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it provides",
+        "text": "Optical evidence for fractionally charged skyrmions across the FQH regime supplies a spectroscopic handle on the spin structure of composite-fermion excitations, complementing transport measurements and testing predictions for spin-textured quasiparticles in fractional states."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10814",
@@ -1177,9 +1317,33 @@
     "groups": [
       "Stanisław Lipiński (Institute of Molecular Physics, Polish Academy of Sciences)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors study transport through a multi-level interacting quantum dot in the Kondo regime, using the Kotliar-Ruckenstein slave-boson mean-field approach to the N-level Anderson model to define effectively noninteracting quasiparticles of the SU(N) Kondo system for N = 2 through 6, with Kondo-resonance transmission coefficients setting the linear noise from quasiparticle partitioning."
+      },
+      {
+        "type": "abstract",
+        "text": "To treat nonlinear conductance, susceptibilities, and shot noise in the strong-coupling regime, they apply Fermi-liquid theory with parameters expressed through pseudofermion susceptibilities obtained within the slave-boson scheme, finding nonlinear shot noise dominated by two-quasiparticle scattering."
+      },
+      {
+        "type": "abstract",
+        "text": "They show that away from the electron-hole symmetry point, three-body correlations must be included to capture the noise correctly."
+      },
+      {
+        "type": "context",
+        "note": "Shot noise as a Kondo probe",
+        "text": "Shot noise and its Fano factor reveal the effective charge and statistics of current-carrying quasiparticles; in SU(N) Kondo systems the backscattering quasiparticles carry fractionalized effective charge, and Fermi-liquid corrections including three-body terms are central to the modern theory of nonequilibrium Kondo noise."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it advances",
+        "text": "Quantifying how two- and three-body correlations shape SU(N) Kondo shot noise away from particle-hole symmetry refines the predicted noise signatures used to identify the symmetry and quasiparticle charge of Kondo states in multi-level quantum dots."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10452",
@@ -1215,9 +1379,33 @@
     "groups": [
       "Sangwon Oh (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors analyze coherence in periodically driven dense nitrogen-vacancy ensembles, showing that WAHUHA dynamical-decoupling control increases the effective inhomogeneous dephasing time from T2* of 0.9 microseconds to 31 microseconds while producing little improvement in dc magnetic-field sensitivity."
+      },
+      {
+        "type": "abstract",
+        "text": "Using detuning-resolved stroboscopic spectroscopy and finite-pulse Floquet analysis, they trace the long-lived signal to phase wrapping and quasi-energy branch folding of the one-cycle unitary, which reshape the stroboscopic spectrum and suppress the detuning-to-phase transduction slope dPhi/dDelta that governs the dc response."
+      },
+      {
+        "type": "abstract",
+        "text": "The results show that under periodic driving an extended effective dephasing time does not necessarily improve dc sensitivity, and establish finite-pulse Floquet analysis as a practical framework for evaluating coherence in spin ensembles."
+      },
+      {
+        "type": "context",
+        "note": "Decoupling versus sensitivity",
+        "text": "Dynamical decoupling extends coherence by averaging out dipolar interactions and inhomogeneous broadening, but it also filters the signal of interest; for dc magnetometry, longer T2* is only useful if the field-to-phase transduction survives, a trade-off central to optimizing NV-ensemble magnetometers."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it clarifies",
+        "text": "By disentangling effective coherence time from usable sensitivity under periodic driving, the work corrects a common assumption in NV-ensemble sensing and offers a Floquet-based criterion for when decoupling sequences genuinely improve magnetometric performance."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10719",
@@ -1263,9 +1451,33 @@
     "groups": [
       "K. De Greve (imec)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors report planar alpha-Ta superconducting resonators fabricated on 300 mm ultra-high-resistivity (>10 kOhm cm) intrinsic silicon using industrial processes, achieving median internal quality factors above 40 million with maxima exceeding 60 million."
+      },
+      {
+        "type": "abstract",
+        "text": "Energy-participation-ratio analysis identifies a dominant participation-controlled interface loss mechanism and bounds substrate-associated dissipation, with the best substrate showing an inferred loss tangent below 1.0e-8, among the lowest reported; notably the losses show no clear correlation with common silicon metrics such as room-temperature resistivity or impurity concentration."
+      },
+      {
+        "type": "abstract",
+        "text": "The results establish industrial 300 mm processing, careful interface engineering, and MCZ silicon substrates as a promising platform for resonator-heavy superconducting quantum architectures."
+      },
+      {
+        "type": "context",
+        "note": "Why ultra-high Q on 300 mm matters",
+        "text": "Bosonic-qubit and error-correction architectures rely on long-lived storage resonators, and tantalum has emerged as a leading low-loss superconductor; demonstrating these quality factors using foundry-compatible 300 mm wafers, rather than lab-scale processes, is central to scaling such hardware."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it enables",
+        "text": "Reaching internal Q above 10^7 with industrial 300 mm fabrication links ultra-high-coherence superconducting resonators to scalable manufacturing, and the absence of correlation with standard substrate metrics points to interface engineering rather than bulk silicon selection as the key lever for further improvement."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.11056",
@@ -1296,9 +1508,33 @@
     "groups": [
       "Felix A. Buot (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The author generalizes the condition under which a pseudogap phase acts as precursor to a superconducting dome, finding a non-analytic dependence of the pseudogap temperature T* on doping, with high-Tc cuprates as the canonical example."
+      },
+      {
+        "type": "abstract",
+        "text": "The dome is argued to require two conditions: that T* decreases with doping due to shrinking extended pairing of doped holes, and that the rate of configurational ordering increases with doping as the disordered-pair extent decreases, both supplied by an entanglement-and-confinement hole-pairing mechanism for the cuprates."
+      },
+      {
+        "type": "abstract",
+        "text": "The framework is presented as part of a theory previously discussed in the literature aiming to capture the full phase diagram of both electron- and hole-doped cuprates."
+      },
+      {
+        "type": "context",
+        "note": "Pseudogap and the dome",
+        "text": "Whether the pseudogap is a precursor to superconductivity (preformed pairs) or a competing order remains a central unresolved question in cuprate physics; the doping dependence and end-point of T* relative to the superconducting dome are key empirical constraints on competing scenarios."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it proposes",
+        "text": "Predicting a non-analytic T*(doping) tied to a specific pairing mechanism offers a falsifiable structural feature that can be compared against the measured pseudogap line in cuprates, bearing on the long-debated relationship between the pseudogap and the superconducting dome."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10349",
@@ -1333,9 +1569,33 @@
     "groups": [
       "Gia-Wei Chern (University of Virginia)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors present a magnetic extension of the Hierarchically Interacting Particle Neural Network (mHIP-NN) for large-scale simulation of electron-mediated spin dynamics in disordered itinerant magnets, incorporating rotationally invariant spin correlations into hierarchical message-passing layers so the network learns emergent magnetic energy landscapes and effective local fields while preserving spin-rotation symmetry."
+      },
+      {
+        "type": "abstract",
+        "text": "Benchmarked on structurally disordered itinerant s-d exchange models where magnetic forces arise from the instantaneous electronic structure and are prohibitive for exact-diagonalization methods, mHIP-NN accurately reproduces the local torques governing Landau-Lifshitz-Gilbert dynamics and captures the nonequilibrium evolution of spatial spin correlations after thermal quenches."
+      },
+      {
+        "type": "abstract",
+        "text": "Because the learned energy functional is differentiable with respect to both atomic coordinates and spin variables, the framework also provides a foundation for spin-dependent interatomic potentials and coupled atom-spin dynamics."
+      },
+      {
+        "type": "context",
+        "note": "ML for itinerant magnetism",
+        "text": "Electron-mediated (RKKY-type) interactions in itinerant magnets require recomputing the electronic structure at each spin configuration, which is the bottleneck for large-scale spin dynamics; symmetry-aware machine-learned force fields are an increasingly standard route to bypass this cost while retaining ab initio accuracy."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it enables",
+        "text": "A symmetry-preserving, differentiable surrogate for electron-mediated spin forces makes large-scale, long-time simulations of frustrated itinerant magnets and nonequilibrium magnetic dynamics tractable, extending the reach of spin-dynamics studies well beyond exact diagonalization."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10970",
@@ -1367,9 +1627,33 @@
     "groups": [
       "Guido Burkard (University of Konstanz)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors investigate how time-dependent external magnetic fluxes in quantized superconducting circuits affect qubit couplings, the same fluxes that enable tunable couplings and high-fidelity entangling gates but also introduce crosstalk through unintended flux coupling."
+      },
+      {
+        "type": "abstract",
+        "text": "They find that a nontrivial cross-voltage drive emerges between capacitively linked qubits when the flux threading a qubit's SQUID loop varies in time, analogous to Faraday's law of induction."
+      },
+      {
+        "type": "abstract",
+        "text": "Crucially, this effect can be turned into a resource: it enables fast single-qubit control through the coupler element in standard tunable-coupler architectures, potentially eliminating the need for individual microwave XY control lines."
+      },
+      {
+        "type": "context",
+        "note": "Crosstalk as resource",
+        "text": "Flux crosstalk is normally treated purely as an error channel that limits scaling of tunable-coupler processors; reinterpreting an inductively induced cross-drive as a control mechanism follows a recurring theme of converting parasitic couplings into usable gates and reducing control-line overhead."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it offers",
+        "text": "Showing that coupler flux can drive single-qubit rotations suggests a resource-efficient control scheme that lowers wiring and microwave-line overhead in tunable-coupler architectures, while also clarifying the microscopic origin of an important crosstalk channel."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10788",
@@ -1411,9 +1695,33 @@
     "groups": [
       "Thomas Schäpers (Forschungszentrum Jülich)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "In tubular GaAs/InAs core/shell nanowires, the authors systematically study flux-periodic conductance oscillations under an axial field as a function of gate voltage for phase-pure zinc-blende samples with different contact-separation lengths, distinguishing Aharonov-Bohm oscillations (non-time-reversed single-loop paths) from Altshuler-Aronov-Spivak oscillations (time-reversed paths)."
+      },
+      {
+        "type": "abstract",
+        "text": "They find that with increasing contact separation, averaging gradually suppresses the h/e-periodic Aharonov-Bohm oscillations while the h/2e Altshuler-Aronov-Spivak oscillations and their h/4e higher harmonics are enhanced, and they attribute the phase rigidity of the h/3e component to rigidity propagating from neighboring lower harmonics."
+      },
+      {
+        "type": "abstract",
+        "text": "Tight-binding transport simulations on nanowires of different lengths with only a few scattering centers reproduce the observed harmonics and their phase rigidity, indicating quasi-ballistic transport with persistent AB and phase-rigid AAS oscillations."
+      },
+      {
+        "type": "context",
+        "note": "Why tubular nanowire interference matters",
+        "text": "Closed-loop states encircling an insulating core make core/shell nanowires a testbed for phase-coherent transport and a building block for proposed superconducting and topological devices; the balance between phase-rigid AAS and the more fragile AB component diagnoses the coherence length and disorder averaging in the shell."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it clarifies",
+        "text": "Mapping how device length tunes the relative weight and phase rigidity of AB versus AAS harmonics gives a quantitative handle on phase coherence in tubular nanowire conductors, informing the design of hybrid devices that rely on flux-periodic coherence around the core."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.11364",
@@ -1444,9 +1752,33 @@
     "groups": [
       "Azaz Ahmad (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "Using semiclassical Boltzmann transport in the relaxation-time approximation, the author computes the longitudinal magnetoconductance and planar Hall conductance of pseudospin-1 Weyl semimetals, incorporating momentum-dependent scattering, orbital-magnetic-moment corrections, and charge-conservation constraints; a finite planar Hall conductance requires breaking azimuthal symmetry via a dispersion tilt or a field misalignment."
+      },
+      {
+        "type": "abstract",
+        "text": "In the untilted case the planar Hall conductance is positive and quadratic in field with the characteristic sin(2*gamma) angular dependence, but increasing scattering strength induces a sign reversal from positive to negative; tilt along x or z changes the angular response to sin(gamma) or cos(gamma) respectively, generating strong anisotropy."
+      },
+      {
+        "type": "abstract",
+        "text": "The planar Hall conductance also depends non-monotonically on tilt magnitude, and the results provide experimentally accessible signatures of multifold fermions in candidate materials of space groups 199, 214, and 220."
+      },
+      {
+        "type": "context",
+        "note": "Multifold fermions and the chiral anomaly",
+        "text": "Positive longitudinal magnetoconductance and a sin(2*gamma) planar Hall response are standard chiral-anomaly fingerprints in spin-1/2 Weyl semimetals; pseudospin-1 (multifold) fermions carry enhanced Berry curvature and chirality, so quantitative differences in their magnetotransport help distinguish higher-pseudospin band crossings in real materials."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it provides",
+        "text": "Predicting tilt- and scattering-dependent sign changes and angular signatures of the planar Hall conductance gives concrete criteria to identify chiral-anomaly transport from multifold fermions, guiding magnetotransport experiments on candidate multifold semimetals."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.11000",
@@ -1480,9 +1812,33 @@
     "groups": [
       "Osvaldo Simeone (King's College London)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors propose quantum analog asynchronous event-based graph neural networks (QA-AEGNNs) implemented on a neutral-atom quantum computer, mapping streaming event-camera data to an array of trapped atoms where each atom is a graph node positioned so geometric proximity reflects the spatio-temporal neighborhood of events."
+      },
+      {
+        "type": "abstract",
+        "text": "The native Rydberg Hamiltonian is programmed to mirror the message-passing computation, with atomic qubit states serving as node feature embeddings and inter-atom interactions realizing graph edges."
+      },
+      {
+        "type": "abstract",
+        "text": "They propose a hybrid quantum-classical training scheme in which analog Hamiltonian parameters such as laser amplitudes and detunings are optimized via classical feedback, leveraging the continuous Hamiltonian dynamics and parallelism of neutral-atom systems to natively execute event-based graph computations."
+      },
+      {
+        "type": "context",
+        "note": "Analog neutral-atom computing",
+        "text": "Neutral-atom processors naturally encode connectivity through atom placement and Rydberg blockade, making them well suited to graph-structured problems; recasting an event-based GNN as analog Rydberg dynamics fits the broader effort to find native machine-learning workloads for analog quantum hardware."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it explores",
+        "text": "Mapping a sparse, event-driven graph neural network onto programmable Rydberg dynamics is a concrete proposal for analog quantum machine learning, identifying the hardware requirements and a potential advantage in communication complexity for processing event-camera data."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.11147",
@@ -1514,9 +1870,33 @@
     "groups": [
       "Sai Satyam Samal (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "Building on the fact that coupling a point-like collider such as a quantum point contact to a two-level impurity can statistically transmute fermions into boson-like bunching behavior, the authors extend the analysis to an extended collider and study the scattering of two incoming fermionic and bosonic wave packets with post-selection on the impurity state."
+      },
+      {
+        "type": "abstract",
+        "text": "They systematically analyze the benchmarks used to characterize bunching and infer mutual statistics, showing that only a specific benchmark faithfully captures the mutual statistics of the colliding particles while alternative choices can produce spurious statistical signatures."
+      },
+      {
+        "type": "abstract",
+        "text": "The correct benchmark for probing quantum statistics therefore depends on the detailed structure of the mesoscopic collider."
+      },
+      {
+        "type": "context",
+        "note": "Collider probes of statistics",
+        "text": "Hong-Ou-Mandel-type mesoscopic colliders at quantum point contacts have recently been used to measure the exchange statistics of electrons and fractional anyons; understanding how qubit coupling and collider geometry bias the inferred statistics is important for interpreting such cross-correlation noise experiments."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it cautions",
+        "text": "Identifying which observables genuinely reflect mutual statistics, versus those that yield spurious signatures, provides a needed methodological check for collider-based measurements of anyonic and statistically transmuted particles in mesoscopic devices."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10854",
@@ -1550,9 +1930,33 @@
     "groups": [
       "Takehito Yokoyama (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors show theoretically that circularly polarized phonons induce electronic magnetization and drive a topological phase transition via phonon Floquet engineering: on a honeycomb lattice, the phonon-modulated electronic states generate an effective next-nearest-neighbor hopping that produces a Haldane-type mass term."
+      },
+      {
+        "type": "abstract",
+        "text": "The circularly polarized phonon breaks time-reversal symmetry and opens a gap at the valley points, driving a transition from a trivial insulator to a Chern insulator, while orbital and spin magnetizations emerge from the broken time-reversal symmetry."
+      },
+      {
+        "type": "abstract",
+        "text": "The phonons thus act as an effective magnetic field that engineers magnetism and topology, offering new opportunities for phonon-based Floquet approaches."
+      },
+      {
+        "type": "context",
+        "note": "Phonon Floquet versus light Floquet",
+        "text": "Floquet engineering of topology has largely used circularly polarized light to realize Haldane-like masses; using chiral phonons instead leverages a lattice degree of freedom that can carry angular momentum, potentially achieving time-reversal breaking and topological gaps without external optical driving or static magnetic fields."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it opens up",
+        "text": "Proposing chiral phonons as an effective magnetic field for inducing magnetization and Chern-insulator topology broadens Floquet engineering to lattice dynamics, suggesting a route to dynamically control magnetic and topological properties without external fields at equilibrium."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.08995",
@@ -1586,9 +1990,33 @@
     "groups": [
       "M. Sampaio (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors study how tree-level QED interactions generate spin correlations between two electrons in Moller scattering and in an extended process with a witness particle C, analyzing e-e -> e-e and e-e-C -> e-e-C in the center-of-mass frame and, for the former, in a Lorentz-boosted frame where Wigner rotations arise."
+      },
+      {
+        "type": "abstract",
+        "text": "Through a nonrelativistic approximation of the scattering amplitudes they identify dipole-dipole and current-dipole interactions as responsible for the correlations, evidenced by changes in the von Neumann entropy of one electron for initially separable states and of C for an initially prepared three-particle W-state."
+      },
+      {
+        "type": "abstract",
+        "text": "Under Wigner rotations the invariance of entropy under local unitaries is preserved at the expense of emergent quantum coherence in the density matrix at large rapidities, and the framework is used to comment on the inelastic process e-e+ -> mu-mu+ where prior results have differed."
+      },
+      {
+        "type": "context",
+        "note": "Entanglement in particle collisions",
+        "text": "Computing entanglement and spin correlations generated by elementary QED scattering has become an active topic linking quantum information to high-energy physics, with Wigner rotations of spin under Lorentz boosts being the well-known subtlety that makes relativistic entanglement frame-dependent at the level of reduced states."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it clarifies",
+        "text": "By tracing scattering-generated spin correlations to specific interaction terms and tracking how Wigner rotations redistribute entropy and coherence across frames, the work informs the interpretation of entanglement and Bell-inequality tests in high-energy collision processes."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10001",
@@ -1631,9 +2059,33 @@
     "groups": [
       "Dharmraj Kotekar-Patil (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors demonstrate phase-coherent quasi-ballistic transport, anisotropic Zeeman spectroscopy, and gate-tunable quantum dot formation in hydrothermally grown chiral (trigonal) tellurium nanowires, with single-nanowire FETs showing p-type transport and hole mobilities rising from about 80 to 190 cm2/Vs between 210 K and 1 K, consistent with a crossover from phonon-limited to Coulomb-scattering-dominated regimes near 50 K."
+      },
+      {
+        "type": "abstract",
+        "text": "Devices segregate by room-temperature two-terminal resistance: low-resistance devices (<30 kOhm) show Fabry-Perot interference while high-resistance devices (>30 kOhm) show Coulomb blockade, revealing a resistance-driven transition between quasi-ballistic and strongly localized transport."
+      },
+      {
+        "type": "abstract",
+        "text": "Zeeman spectroscopy yields highly anisotropic Lande g-factors (in-plane 1.18, out-of-plane 18.41) and resolves a spin-orbit gap of 0.864 meV from an avoided crossing, establishing chiral tellurium nanowires as a platform for gate-defined spin qubits and hybrid tellurium-superconductor architectures targeting Majorana zero modes."
+      },
+      {
+        "type": "context",
+        "note": "Why elemental Te is of interest",
+        "text": "Tellurium is a chiral elemental semiconductor with strong spin-orbit coupling and a radial spin texture; its large, anisotropic g-factors and resolvable spin-orbit gap make it attractive for spin-orbit qubits and for proximity-induced topological superconductivity in a single-element van der Waals material."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it establishes",
+        "text": "Demonstrating the quantum-coherent regime, tunable quantum dots, and a directly measured spin-orbit gap in elemental tellurium nanowires positions this previously underexplored material as a candidate platform for spin-orbit qubits and hybrid superconducting devices."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.09678",
@@ -1664,9 +2116,33 @@
     "groups": [
       "Aliki A. Capatos (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The author confirms a conjectured dynamic (ancilla-free) measurement circuit for the CSS 4.8.8 Floquet code that, unlike the dynamic 6.6.6 honeycomb code, preserves the full spatial code distance rather than halving it."
+      },
+      {
+        "type": "abstract",
+        "text": "Benchmarking four circuit-level implementations on a torus under depolarizing noise, the reset dynamic circuit reaches a per-round threshold of 0.463% (0.490% with BP+matching) and the no-reset variant the highest at 0.512% (0.574%), versus 0.228% for the standard ancilla-based circuit and 0.478% for a pipelined ancilla-based schedule."
+      },
+      {
+        "type": "abstract",
+        "text": "The reset dynamic circuit also has a faster-growing timelike distance and the smallest spacetime volume in the fast-reset regime, so the 4.8.8 dynamic circuits realize the expected threshold gain and overhead reduction without the spatial-distance cost incurred by the 6.6.6 case."
+      },
+      {
+        "type": "context",
+        "note": "Dynamic syndrome extraction",
+        "text": "Floquet codes extract stabilizer information through sequences of two-qubit measurements; making the syndrome circuit dynamic (ancilla-free) can raise thresholds and cut overhead but sometimes sacrifices code distance, so a construction that keeps full distance is directly relevant to practical fault-tolerance overheads."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it demonstrates",
+        "text": "Showing that dynamic syndrome extraction can improve threshold and overhead for the 4.8.8 Floquet code without distance reduction strengthens the case for ancilla-free circuits in Floquet-code memories and gives concrete circuit-level numbers for architecture trade-offs."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.09755",
@@ -1705,9 +2181,33 @@
     "groups": [
       "M. A. Zudov (University of Minnesota)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors report a new class of radiation-induced magnetoresistance oscillations in high-mobility 2D electron gases driven in the radio-frequency (UHF) range, distinct from the established microwave-induced resistance oscillations (MIROs)."
+      },
+      {
+        "type": "abstract",
+        "text": "Unlike MIROs, these radiowave-induced oscillations occur where the cyclotron frequency greatly exceeds the drive frequency, have an amplitude independent of radiation power, have a period set by the radiation electric field rather than the frequency, and can be either 1/B- or 1/B^2-periodic depending on B."
+      },
+      {
+        "type": "abstract",
+        "text": "The authors show these oscillations can be explained by a displacement model in the limit of short-range disorder."
+      },
+      {
+        "type": "context",
+        "note": "MIROs context",
+        "text": "MIROs and the related zero-resistance states arise from photon-assisted Landau-level transitions and are central to nonequilibrium magnetotransport in 2DEGs; observing a power-independent, field-controlled oscillation at much lower frequencies points to a qualitatively different, nonlinear or multi-photon mechanism."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it adds",
+        "text": "Extending radiation-induced magnetoresistance oscillations into the radio-frequency regime, with power-independent amplitude and field-set periodicity, reveals a transport phenomenon outside the standard single-photon MIRO picture and challenges theory to account for the displacement mechanism under short-range disorder."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.10067",
@@ -1741,9 +2241,33 @@
     "groups": [
       "Gerson J. Ferreira (Federal University of Uberlândia)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors study a spin-polarized wave packet in a disordered Rashba 2D electron gas and identify a jittery quantum boomerang effect in which longitudinal and transverse motion return to the origin through distinct mechanisms, starting from a state with finite momentum along x and spin along z, computed via a Chebyshev expansion of the time-evolution operator with disorder averaging."
+      },
+      {
+        "type": "abstract",
+        "text": "In the weak-scattering regime, equations of motion from the quantum kinetic equation reproduce the numerics and show that impurity scattering acts as viscous damping that suppresses the transient Zitterbewegung and drives the transverse displacement back to zero, while the longitudinal dynamics show a Drude-like saturation."
+      },
+      {
+        "type": "abstract",
+        "text": "These results are consistent with the vanishing intrinsic spin Hall conductivity of the disordered Rashba model and with observations of a transient intrinsic spin Hall effect; as disorder increases, the longitudinal dynamics evolve to a partial return, signaling a crossover from weak antilocalization to Anderson localization in 2D."
+      },
+      {
+        "type": "context",
+        "note": "Quantum boomerang and spin-orbit",
+        "text": "The quantum boomerang effect, where a wave packet with initial momentum returns to its origin, is a real-time signature of Anderson localization; adding Rashba spin-orbit coupling couples this to spin precession and Zitterbewegung, connecting localization dynamics to the much-debated fate of the intrinsic spin Hall effect under disorder."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it reveals",
+        "text": "Showing that longitudinal and transverse returns arise from genuinely different mechanisms, and linking the transverse return to the vanishing of the disorder-averaged spin Hall conductivity, ties real-time boomerang dynamics to the localization and spin-Hall physics of Rashba 2DEGs."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.09506",
@@ -1778,9 +2302,33 @@
     "groups": [
       "Amit Agarwal (IIT Kanpur)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors investigate the planar Hall effect in single- and bilayer 2DEGs with Rashba spin-orbit coupling and identify two distinct mechanisms: a Zeeman channel, in which an in-plane field distorts the Rashba dispersion to generate anisotropic carrier velocities, and a band-geometric channel arising from planar Berry curvature and orbital magnetic moment in asymmetric Rashba bilayers with interlayer delocalization."
+      },
+      {
+        "type": "abstract",
+        "text": "Using semiclassical Boltzmann theory, they compute the chemical-potential and angular dependence of the planar Hall conductivity for both mechanisms, with symmetry analysis showing the leading response is quadratic in field and pi-periodic in angle."
+      },
+      {
+        "type": "abstract",
+        "text": "For the parameters considered the Zeeman contribution dominates, while the band-geometric channel provides a distinct symmetry-allowed contribution unique to asymmetric Rashba bilayers."
+      },
+      {
+        "type": "context",
+        "note": "Planar Hall in 2D spin-orbit systems",
+        "text": "The planar Hall effect has become a sensitive probe of band geometry and spin texture in topological and spin-orbit-coupled materials; disentangling Zeeman-driven and Berry-curvature-driven channels in Rashba 2DEGs clarifies the microscopic origin of anisotropic magnetotransport in these widely studied systems."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it adds",
+        "text": "Identifying a band-geometric planar Hall channel specific to asymmetric Rashba bilayers, distinguishable by its symmetry from the Zeeman channel, gives an experimental route to detect Berry-curvature contributions to magnetotransport in two-dimensional spin-orbit materials."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.09722",
@@ -1826,9 +2374,33 @@
     "groups": [
       "Pasquale Scarlino (École Polytechnique Fédérale de Lausanne)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors study a hybrid circuit-QED device consisting of a GaAs double-quantum-dot charge qubit capacitively coupled to a high-impedance, frequency-tunable SQUID-array resonator, and by tuning the qubit transition over roughly 3-6 GHz perform frequency-resolved decoherence spectroscopy across a broad energy window."
+      },
+      {
+        "type": "abstract",
+        "text": "Time-resolved measurements disentangle relaxation from pure dephasing, showing that dephasing dominates the linewidth at lower frequencies (below about 4.5 GHz) while energy relaxation dominates at higher frequencies."
+      },
+      {
+        "type": "abstract",
+        "text": "The relaxation rate exhibits cubic frequency scaling consistent with charge-qubit decay dominated by coupling to a piezoelectric phonon bath, giving frequency-resolved access to the phonon-induced spectral density and demonstrating that hybrid semiconductor-superconductor circuits can serve as sensitive probes of microscopic decoherence."
+      },
+      {
+        "type": "context",
+        "note": "Charge noise in semiconductor qubits",
+        "text": "Charge noise, with its characteristic 1/f low-frequency component and phonon-dominated high-frequency tail, is the dominant decoherence source for GaAs charge qubits; using a tunable high-impedance resonator to spectrally resolve these contributions provides direct microscopic insight relevant across hybrid quantum-dot devices."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it enables",
+        "text": "Frequency-resolved separation of dephasing and phonon-limited relaxation, including the cubic scaling diagnostic of piezoelectric phonons, turns a hybrid resonator-qubit device into a spectroscopic tool for the noise mechanisms that limit semiconductor and hybrid quantum systems."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.09267",
@@ -1862,9 +2434,33 @@
     "groups": [
       "Arijit Kundu (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors define a winding number within Non-Bloch band theory that captures the emergence of magnon edge modes in a one-dimensional antiferromagnetic spin chain even when the conventional Bloch winding number is trivial, noting that within linear spin-wave theory magnon excitations are governed by a non-Hermitian dynamic matrix despite the underlying Hamiltonian being Hermitian."
+      },
+      {
+        "type": "abstract",
+        "text": "The matrix's symmetry classification yields a trivial bulk invariant, yet finite systems exhibit boundary-localized modes, signaling a breakdown of conventional bulk-boundary correspondence; a non-Bloch framework based on a generalized Brillouin zone and an associated winding number correctly predicts these edge states."
+      },
+      {
+        "type": "abstract",
+        "text": "The edge modes can be controlled by boundary perturbations, with the boundary potential tuning them into or out of the bulk spectrum, giving boundary-controlled topological transitions accessible via local Zeeman fields or modified edge anisotropy in antiferromagnetic van der Waals nanostructures."
+      },
+      {
+        "type": "context",
+        "note": "Non-Hermitian topology in magnonics",
+        "text": "Bosonic Bogoliubov-de Gennes problems generically yield non-Hermitian dynamic matrices, so non-Hermitian topological concepts such as the non-Bloch generalized Brillouin zone and the non-Hermitian skin effect apply to magnons; using them to predict and control magnon edge modes connects magnonics to the broader non-Hermitian topology program."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it enables",
+        "text": "Providing a non-Bloch invariant that correctly predicts boundary-controlled magnon edge modes gives a design principle for magnonic boundary states tunable by local fields, relevant to engineering edge transport in antiferromagnetic van der Waals magnets."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.08874",
@@ -1900,9 +2496,33 @@
     "groups": [
       "Jonathan Baugh (University of Waterloo)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors develop a hardware-algorithm co-simulation framework for silicon quantum-dot processors that links 3D electrostatics to effective g-factors and exchange couplings and propagates voltage-level noise through realistic control pulses, using VQE for the H2 ground-state energy as a circuit-level testbed under both static scaling/offset gate-voltage errors and random-telegraph fluctuations."
+      },
+      {
+        "type": "abstract",
+        "text": "At the gate level they find exchange-based two-qubit gates are roughly an order of magnitude more sensitive to gate-voltage noise than ESR-driven single-qubit rotations, and use quantum process tomography and Kraus-operator analysis to separate coherent from incoherent error and quantify the fraction correctable by a compensating unitary."
+      },
+      {
+        "type": "abstract",
+        "text": "Embedding these noise models in the VQE circuit, they identify regimes of miscalibration strength and noise switching time compatible with chemically accurate energy estimates and discuss statistical post-processing of the noisy-energy distribution to further improve accuracy."
+      },
+      {
+        "type": "context",
+        "note": "Charge noise in silicon spin qubits",
+        "text": "Charge-noise-induced gate-voltage fluctuations, often modeled as random-telegraph or 1/f noise, are the leading limitation on silicon spin-qubit fidelity; connecting device electrostatics through gate pulses to algorithm-level VQE accuracy bridges hardware modeling and near-term quantum-chemistry benchmarks."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it provides",
+        "text": "A device-to-algorithm co-simulation that pinpoints exchange gates as the dominant noise-sensitive element and maps noise parameters to chemically accurate VQE regimes gives concrete guidance for calibration tolerances and error mitigation in silicon spin-qubit processors."
+      }
+    ],
+    "enriched": true
   },
   {
     "arxiv_id": "2606.08868",
@@ -1937,8 +2557,28 @@
     "groups": [
       "A. Zuevsky (Unknown Institution)"
     ],
-    "summary_segments": [],
-    "significance_segments": [],
-    "enriched": false
+    "summary_segments": [
+      {
+        "type": "abstract",
+        "text": "The authors consider a broad class of 2D tight-binding models, including non-homogeneous ones, and express the topological invariant N3 responsible for the quantization of the Hall conductivity in the integer quantum Hall effect through the Wigner transformation of the two-point electron Matsubara Green function."
+      },
+      {
+        "type": "abstract",
+        "text": "They recast this invariant as a pairing between an element of the K^{-1} group generated by the Green function and a specific element of the cyclic cohomology group HC^3, and invoke local index theorems to argue N3 is integer-valued for a limited class of tight-binding models."
+      },
+      {
+        "type": "context",
+        "note": "Non-commutative geometry and the QHE",
+        "text": "The integer quantum Hall conductivity has long been understood topologically, and the non-commutative-geometry approach (Bellissard and others) handles disordered, non-translation-invariant systems where Bloch theory fails; expressing the invariant via Wigner-transformed Green functions and cyclic cohomology continues this program toward inhomogeneous lattice models."
+      }
+    ],
+    "significance_segments": [
+      {
+        "type": "context",
+        "note": "What it unifies",
+        "text": "Casting the integer quantum Hall invariant in a Green-function, non-commutative-geometry language that applies to inhomogeneous and disordered tight-binding models offers a unified topological framework spanning clean and disordered systems, relevant to robustly characterizing Hall quantization beyond translationally invariant settings."
+      }
+    ],
+    "enriched": true
   }
 ]
