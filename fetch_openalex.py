@@ -28,7 +28,7 @@ import urllib.request
 from pathlib import Path
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-TARGET_IDS    = ["2504.06972"]
+TARGET_IDS    = []
 
 CATEGORY      = "cond-mat.mes-hall"
 LOOKBACK_DAYS = 8
@@ -114,12 +114,16 @@ def query_openalex_by_ids(ids):
 # ── OpenAlex: fetch by date range ─────────────────────────────────────────────
 def query_openalex_weekly(start_date, end_date):
     """Fetch cond-mat.mes-hall papers submitted in [start_date, end_date]."""
-    # OpenAlex source ID for arXiv cond-mat.mes-hall
-    # Filter: primary_location is arXiv + topic matches mesoscopic/cond-mat
+    # T10382 = "Quantum and electron transport phenomena" — best OpenAlex approximation
+    # for the cond-mat.mes-hall arXiv category. S4306400194 = arXiv (Cornell).
+    # OpenAlex date range requires from_publication_date/to_publication_date, not
+    # the colon-range syntax publication_date:start:end (which returns HTTP 400).
     params = urllib.parse.urlencode({
         "filter": (
+            f"topics.id:T10382,"
             f"primary_location.source.id:S4306400194,"
-            f"publication_date:{start_date.isoformat()}:{end_date.isoformat()}"
+            f"from_publication_date:{start_date.isoformat()},"
+            f"to_publication_date:{end_date.isoformat()}"
         ),
         "select": SELECT_FIELDS,
         "per_page": MAX_RESULTS,
@@ -144,7 +148,18 @@ def query_openalex_weekly(start_date, end_date):
 
 # ── OpenAlex parsers ───────────────────────────────────────────────────────────
 def _extract_arxiv_id(work):
-    """Extract arXiv ID from OpenAlex work locations."""
+    """Extract arXiv ID from OpenAlex work.
+
+    OpenAlex stores arXiv papers with DOIs in the form
+    https://doi.org/10.48550/arxiv.XXXX (preferred) or as landing_page_url
+    https://arxiv.org/abs/XXXX. Check both.
+    """
+    # Prefer ids.doi — most reliable for recent arXiv papers
+    doi = (work.get("ids") or {}).get("doi") or ""
+    if "10.48550/arxiv." in doi.lower():
+        return doi.lower().split("10.48550/arxiv.")[-1].strip().strip("/")
+
+    # Fall back to location landing_page_url with /abs/ pattern
     for loc in work.get("locations", []):
         url = loc.get("landing_page_url") or ""
         if "/abs/" in url and "arxiv" in url.lower():
@@ -363,6 +378,7 @@ def main():
         if arxiv_id in tracked:
             print(f"  Skipping {arxiv_id} — already tracked")
             continue
+        tracked.add(arxiv_id)  # prevent duplicates from the same API response
         new_records.append((arxiv_id, parse_work(arxiv_id, work)))
 
     print(f"\n{len(new_records)} new paper(s) to process")
